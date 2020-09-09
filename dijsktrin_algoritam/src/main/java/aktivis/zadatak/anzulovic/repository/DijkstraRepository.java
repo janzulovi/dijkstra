@@ -1,22 +1,22 @@
 package aktivis.zadatak.anzulovic.repository;
 
+import aktivis.zadatak.anzulovic.objects.CreatePathDTO;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
+
 @Repository
-public class DijkstraRepository {
+public interface DijkstraRepository extends JpaRepository<CreatePathDTO, Integer> {
 
-    private static DijkstraRepository instance = null;
-
-    public DijkstraRepository() {
-    }
-
-    public static DijkstraRepository getInstance() {
-        if(instance == null)
-            instance = new DijkstraRepository();
-        return instance;
-    }
-
-    public void saveData(String incidenceMatrix, String edgesWeights, String firstVertex, String lastVertex) {
-
-    }
+    @Transactional
+    @Modifying
+    @Query(value = "insert into createpath(incidencematrix, edgeweight, firstvertex, lastvertex) " +
+            "values (:incidenceMatrix, " +
+            ":edgeWeight, " +
+            ":firstVertex, " +
+            ":lastVertex)", nativeQuery = true)
+    void addData(String incidenceMatrix, String edgeWeight, String firstVertex, String lastVertex);
 }

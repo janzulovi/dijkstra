@@ -2,48 +2,53 @@ package aktivis.zadatak.anzulovic.objects;
 
 public class Edge {
 
-    private Integer id;
-    private String vertexsource;
-    private String vertexdestination;
-    private Integer weight;
+    private String id;
+    private Vertex source;
+    private Vertex destination;
+    private int weight;
+
+    public Edge(String id, Vertex source, Vertex destination, int weight) {
+        this.id = id;
+        this.source = source;
+        this.destination = destination;
+        this.weight = weight;
+    }
 
     public Edge(){}
 
-
-    public Integer getId() {
+    public String getId() {
         return id;
     }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public Vertex getDestination() {
+        return destination;
     }
 
-    public String getVertexsource() {
-        return vertexsource;
+    public Vertex getSource() {
+        return source;
     }
-
-    public void setVertexsource(String vertexsource) {
-        this.vertexsource = vertexsource;
-    }
-
-    public String getVertexdestination() {
-        return vertexdestination;
-    }
-
-    public void setVertexdestination(String vertexdestination) {
-        this.vertexdestination = vertexdestination;
-    }
-
-    public Integer getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(Integer weight) {
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setSource(Vertex source) {
+        this.source = source;
+    }
+
+    public void setDestination(Vertex destination) {
+        this.destination = destination;
+    }
+
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
     @Override
     public String toString() {
-        return vertexsource + " " + vertexdestination;
+        return source + " " + destination;
     }
+
 }
