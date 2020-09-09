@@ -1,9 +1,9 @@
-create table edge(
-    id int primary key,
-    weight int
-);
+drop table if exists createpath;
 
-create table vertex(
-    id int primary key,
-    vertexname varchar(100)
+create table createpath(
+    id int auto_increment primary key,
+    incidencematrix varchar(255),
+    edgeweight varchar(255),
+    firstvertex varchar(10),
+    lastvertex varchar(10)
 );
