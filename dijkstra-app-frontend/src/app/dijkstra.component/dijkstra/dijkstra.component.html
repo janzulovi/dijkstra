@@ -1,0 +1,36 @@
+<form class="justify-content-lg-center">
+    <div class="form-group">
+      <label>Unesi matricu</label><br>
+      <input class="form-control" type="text" #incidenceMatrix>
+    </div>
+    <br>
+    
+  
+    <div class="form-group">
+      <label>Unesi težine bridova</label><br>
+      <input class="form-control" type="text" #edgeWeight>
+    </div>
+    <br>
+    
+  
+    <div class="form-group">
+      <label>Prva točka</label><br>
+      <input class="form-control" type="text" #firstVertex>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label>Završna točka</label><br>
+      <input class="form-control" type="text" #lastVertex>
+    </div>
+    <br>
+    <br>
+    <button class="btn btn-primary" type="submit" (click)="getPath($event, incidenceMatrix.value, edgeWeight.value, firstVertex.value, lastVertex.value);
+    incidenceMatrix.value = ''; edgeWeight.value = ''; firstVertex.value = ''; lastVertex.value = ''">Izračunaj</button>
+</form>
+
+  <br>
+
+  <div class="" *ngIf="solution">
+    {{solution.solution}}
+  </div>
